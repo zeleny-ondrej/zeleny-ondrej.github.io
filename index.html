@@ -1,7 +1,491 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ondrej Zeleny | Work, Publications, and Projects</title>
+  <meta name="description" content="Portfolio and publication template for projects, research, and contributions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f1;
+      --surface: #fffdfa;
+      --surface-2: #fff5e9;
+      --text: #1a1d1f;
+      --muted: #5d6468;
+      --line: #d9dbde;
+      --accent: #006a6a;
+      --accent-2: #ef6c2f;
+      --shadow: 0 18px 48px rgba(26, 29, 31, 0.08);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 10%, #ffe0c5 0, transparent 38%),
+        radial-gradient(circle at 10% 15%, #cde9e6 0, transparent 32%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, white);
+    }
+
+    .topbar {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 0.38rem 0.75rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.93rem;
+      transition: all 150ms ease;
+    }
+
+    .nav a:hover {
+      border-color: var(--line);
+      background: #ffffffa8;
+    }
+
+    .hero {
+      padding: 5.2rem 0 3.2rem;
+      display: grid;
+      gap: 1.3rem;
+      animation: rise 650ms ease both;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin: 0;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.8vw, 3.4rem);
+      max-width: 14ch;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 68ch;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 0.65rem 1rem;
+      border-radius: 12px;
+      font-weight: 500;
+      background: #fff;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .btn.primary {
+      color: #fff;
+      background: linear-gradient(120deg, var(--accent), #0a8787);
+      border-color: transparent;
+    }
+
+    .stats {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      background: #ffffffbb;
+      border: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 2.2rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.1rem;
+      box-shadow: 0 10px 24px rgba(12, 18, 22, 0.05);
+      animation: rise 600ms ease both;
+    }
+
+    .card p {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .tag {
+      font-size: 0.77rem;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: #8a3d15;
+      padding: 0.18rem 0.55rem;
+    }
+
+    .card-links {
+      margin-top: 0.9rem;
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .card-links a {
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .pub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .pub {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem;
+      background: #ffffffb5;
+    }
+
+    .pub-top {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .pub h3 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 0.35rem;
+    }
+
+    .timeline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-left: 2px dashed color-mix(in srgb, var(--accent) 35%, var(--line));
+      margin-left: 0.5rem;
+    }
+
+    .timeline li {
+      position: relative;
+      padding: 0.2rem 0 1.1rem 1rem;
+      color: var(--muted);
+    }
+
+    .timeline li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      position: absolute;
+      left: -6px;
+      top: 0.38rem;
+    }
+
+    .timeline strong {
+      color: var(--text);
+    }
+
+    .cta {
+      margin: 2.2rem 0 3rem;
+      background: linear-gradient(115deg, #fef8f2 15%, #edf7f6 85%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .cta p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding-top: 3.2rem;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <div class="brand">Ondrej Zeleny</div>
+      <nav class="nav" aria-label="Sections">
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <p class="eyebrow">Build in Public</p>
+      <h1>Work log for products, papers, and open collaboration.</h1>
+      <p class="lead">
+        This template is set up for publishing what you are building, what you have published, and which teams or projects you actively contribute to.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See Current Work</a>
+        <a class="btn" href="#publications">Browse Publications</a>
+      </div>
+      <div class="stats">
+        <span class="chip">Update this weekly</span>
+        <span class="chip">Tag by domain</span>
+        <span class="chip">Link repos and papers</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <h2>Featured Projects</h2>
+        <p>Replace these cards with your active work.</p>
+      </div>
+      <div class="cards">
+        <!-- Duplicate this card for each project -->
+        <article class="card">
+          <h3>Project Name</h3>
+          <p>Short project summary. What problem are you solving and what is your specific role?</p>
+          <div class="tags">
+            <span class="tag">Web</span>
+            <span class="tag">Data</span>
+            <span class="tag">Open Source</span>
+          </div>
+          <div class="card-links">
+            <a href="#" aria-label="Project repository">Repo</a>
+            <a href="#" aria-label="Live demo">Demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Second Project</h3>
+          <p>Another concise summary with measurable progress, e.g. launch date, users, or milestones.</p>
+          <div class="tags">
+            <span class="tag">Research</span>
+            <span class="tag">Automation</span>
+          </div>
+          <div class="card-links">
+            <a href="#">Write-up</a>
+            <a href="#">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Community Contribution</h3>
+          <p>A project you support with code, documentation, design, or review work.</p>
+          <div class="tags">
+            <span class="tag">Contribution</span>
+            <span class="tag">Maintainer Work</span>
+          </div>
+          <div class="card-links">
+            <a href="#">Contribution log</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-head">
+        <h2>Publications</h2>
+        <p>Use this area for papers, talks, and articles.</p>
+      </div>
+      <ul class="pub-list">
+        <!-- Duplicate this list item for each publication -->
+        <li class="pub">
+          <div class="pub-top">
+            <h3>Publication Title Goes Here</h3>
+            <span class="tag">Journal</span>
+          </div>
+          <p class="meta">Co-authors: Name 1, Name 2 - 2026</p>
+          <div class="card-links">
+            <a href="#">DOI</a>
+            <a href="#">PDF</a>
+            <a href="#">Slides</a>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="pub-top">
+            <h3>Technical Article or Conference Talk</h3>
+            <span class="tag">Conference</span>
+          </div>
+          <p class="meta">Event Name - 2025</p>
+          <div class="card-links">
+            <a href="#">Recording</a>
+            <a href="#">Article</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contributions">
+      <div class="section-head">
+        <h2>Contribution Timeline</h2>
+        <p>Track what you shipped and supported.</p>
+      </div>
+      <ol class="timeline">
+        <li><strong>Mar 2026:</strong> Shipped v2 dashboard architecture and migration docs.</li>
+        <li><strong>Feb 2026:</strong> Co-authored paper draft and submitted camera-ready revisions.</li>
+        <li><strong>Jan 2026:</strong> Reviewed 12 pull requests across partner repositories.</li>
+      </ol>
+    </section>
+
+    <section class="cta" id="contact">
+      <h2>Open to collaboration</h2>
+      <p>For project partnerships, speaking, or research collaboration:</p>
+      <p><strong>Email:</strong> your.name@email.com</p>
+      <div class="card-links">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Google Scholar</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Last updated: March 2026.
+    </div>
+  </footer>
 </body>
 </html>
