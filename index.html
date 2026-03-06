@@ -76,7 +76,7 @@
       gap: 1rem;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 0;
+      padding: 0.72rem 0;
     }
 
     .brand {
@@ -107,9 +107,9 @@
     }
 
     .hero {
-      padding: 5.2rem 0 3.2rem;
+      padding: 2.3rem 0 1.6rem;
       display: grid;
-      gap: 1.3rem;
+      gap: 0.9rem;
       animation: rise 650ms ease both;
     }
 
@@ -129,22 +129,22 @@
 
     .hero h1 {
       font-family: "Space Grotesk", "Segoe UI", sans-serif;
-      font-size: clamp(2rem, 4.8vw, 3.4rem);
-      max-width: 17ch;
+      font-size: clamp(1.65rem, 3.7vw, 2.6rem);
+      max-width: 20ch;
     }
 
     .lead {
       margin: 0;
       max-width: 68ch;
       color: var(--muted);
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      font-size: clamp(0.98rem, 1.9vw, 1.08rem);
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
-      margin-top: 0.5rem;
+      margin-top: 0.2rem;
     }
 
     .btn {
@@ -171,7 +171,7 @@
     }
 
     .stats {
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.7rem;
@@ -371,7 +371,7 @@
 
     @media (max-width: 700px) {
       .hero {
-        padding-top: 3.2rem;
+        padding-top: 1.6rem;
       }
 
       .topbar {
@@ -386,10 +386,11 @@
     <div class="wrap topbar">
       <div class="brand">Ondrej Zeleny</div>
       <nav class="nav" aria-label="Sections">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#about">Who I Am</a>
+        <a href="#focus">What I Do</a>
+        <a href="#projects">What I Work On</a>
         <a href="#publications">Publications</a>
-        <a href="#contributions">Contributions</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -413,27 +414,60 @@
       </div>
     </section>
 
+    <section id="timeline">
+      <div class="section-head">
+        <h2>Timeline</h2>
+        <p>Key milestones from project involvement and publications.</p>
+      </div>
+      <ol class="timeline">
+        <li><strong>2025-2027:</strong> 5GRailCare - Predictive maintenance modeling for 5G railway fleet management.</li>
+        <li><strong>2025:</strong> First-author IEEE publication on deep learning for multipath component detection in PDP.</li>
+        <li><strong>2024-2025:</strong> Open RAN Cybersecurity - 5G security classifier framework development.</li>
+        <li><strong>2024:</strong> First-author journal publication on occupancy detection using neural networks.</li>
+        <li><strong>2023:</strong> First-author IEEE publication on precise regression with Multi-Branch MLP.</li>
+        <li><strong>2022-2023:</strong> TACR TREND - AI models for thermal dilatation prediction in industrial machinery.</li>
+      </ol>
+
+      <!-- Placeholder timeline item (commented for later use)
+      <li><strong>Year:</strong> Contribution summary.</li>
+      -->
+    </section>
+
     <section id="about">
       <div class="section-head">
-        <h2>About</h2>
-        <p>Primary focus and academic profile.</p>
+        <h2>Who I Am</h2>
+        <p>Academic profile and research identity.</p>
       </div>
       <article class="card">
         <p>
-          I focus on machine learning and neural networks for wireless communications, signal analysis, and practical AI deployment.
-          My recent work includes occupancy detection, multipath component detection in power delay profiles, and predictive maintenance models for 5G and rail systems.
+          I am a PhD candidate at the Department of Radio Electronics, Faculty of Electrical Engineering and Communication,
+          Brno University of Technology, focused on applied AI for wireless systems and data-driven engineering problems.
+        </p>
+      </article>
+    </section>
+
+    <section id="focus">
+      <div class="section-head">
+        <h2>What I Do</h2>
+        <p>Core technical themes and methods.</p>
+      </div>
+      <article class="card">
+        <p>
+          I design and evaluate machine learning and neural network models for wireless communications, signal analysis,
+          and practical AI deployment. Recent topics include occupancy detection, multipath component detection in power
+          delay profiles, and predictive maintenance for 5G and rail systems.
         </p>
       </article>
     </section>
 
     <section id="projects">
       <div class="section-head">
-        <h2>Project Involvement</h2>
-        <p>Populated from CV project records.</p>
+        <h2>What I Work On</h2>
+        <p>Selected projects and direct responsibilities.</p>
       </div>
       <div class="cards">
         <article class="card">
-          <h3>FW03010366 (2022-2023)</h3>
+          <h3>TACR TREND - Thermal Dilatation AI (2022-2023)</h3>
           <p>
             AI for compensation of machining thermal dilatations (TA CR, TREND). Role: data analysis, visualization,
             and neural network modeling for prediction from machine sensor streams (temperature and rotation data).
@@ -446,7 +480,7 @@
         </article>
 
         <article class="card">
-          <h3>CL02000139 - 5GRailCare (2025-2027)</h3>
+          <h3>5GRailCare (2025-2027)</h3>
           <p>
             Innovative remote 5G management of railway fleets with predictive maintenance estimation.
             Role: data analysis, visualization, and model development for locomotive maintenance prediction using neural networks.
@@ -459,7 +493,7 @@
         </article>
 
         <article class="card">
-          <h3>VK01030166 (2024-2025)</h3>
+          <h3>Open RAN Cybersecurity (2024-2025)</h3>
           <p>
             Open RAN cybersecurity project focused on identity theft of base stations and 5G physical layer verification.
             Role: framework development for optimization and testing of fake base station presence classifiers.
@@ -472,7 +506,7 @@
         </article>
 
         <article class="card">
-          <h3>GF23-04304L (2023-2025)</h3>
+          <h3>GACR - mmWave Propagation AI (2023-2025)</h3>
           <p>
             Multi-band mmWave propagation prediction for dynamic and static scenarios.
             Role: design of neural network and machine learning models for multipath component identification in Power Delay Profiles (PDP).
@@ -500,7 +534,7 @@
 
     <section id="publications">
       <div class="section-head">
-        <h2>Publications</h2>
+        <h2>What I Published</h2>
         <p>Main-author publications from your CV and provided papers.</p>
       </div>
       <ul class="pub-list">
@@ -552,25 +586,6 @@
           <a href="#">PDF</a>
         </div>
       </li>
-      -->
-    </section>
-
-    <section id="contributions">
-      <div class="section-head">
-        <h2>Contribution Timeline</h2>
-        <p>Key milestones from project involvement and publications.</p>
-      </div>
-      <ol class="timeline">
-        <li><strong>2022-2023:</strong> FW03010366 - AI models for thermal dilatation prediction in industrial machinery.</li>
-        <li><strong>2023:</strong> First-author IEEE publication on precise regression with Multi-Branch MLP.</li>
-        <li><strong>2024:</strong> First-author journal publication on occupancy detection using neural networks.</li>
-        <li><strong>2024-2025:</strong> VK01030166 - Open RAN/5G security classifier framework development.</li>
-        <li><strong>2025:</strong> First-author IEEE publication on deep learning for multipath component detection in PDP.</li>
-        <li><strong>2025-2027:</strong> CL02000139 - Predictive maintenance modeling for 5G railway fleet management.</li>
-      </ol>
-
-      <!-- Placeholder timeline item (commented for later use)
-      <li><strong>Year:</strong> Contribution summary.</li>
       -->
     </section>
 
