@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ondrej Zeleny | Work, Publications, and Projects</title>
-  <meta name="description" content="Portfolio and publication template for projects, research, and contributions.">
+  <title>Ondrej Zeleny | AI Research, Publications, and Projects</title>
+  <meta name="description" content="AI and neural network research portfolio with publications and project contributions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f5f1;
-      --surface: #fffdfa;
-      --surface-2: #fff5e9;
-      --text: #1a1d1f;
-      --muted: #5d6468;
-      --line: #d9dbde;
-      --accent: #006a6a;
-      --accent-2: #ef6c2f;
-      --shadow: 0 18px 48px rgba(26, 29, 31, 0.08);
+      --bg: #eff6fc;
+      --surface: #ffffff;
+      --surface-2: #edf6ff;
+      --text: #0f1923;
+      --muted: #4a5b6a;
+      --line: #c9d8e8;
+      --accent: #005fb8;
+      --accent-2: #00a3b0;
+      --accent-3: #f57f17;
+      --shadow: 0 18px 48px rgba(15, 25, 35, 0.08);
       --radius: 18px;
       --max: 1100px;
     }
@@ -33,13 +34,27 @@
 
     body {
       margin: 0;
-      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 85% 10%, #ffe0c5 0, transparent 38%),
-        radial-gradient(circle at 10% 15%, #cde9e6 0, transparent 32%),
-        var(--bg);
+      background: linear-gradient(140deg, #f7fbff 0%, #edf5ff 45%, #f5fbff 100%);
       line-height: 1.55;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -12%;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.5;
+      background:
+        radial-gradient(circle at 1px 1px, rgba(0, 95, 184, 0.16) 1px, transparent 1px) 0 0 / 28px 28px,
+        linear-gradient(60deg, rgba(0, 163, 176, 0.08) 1px, transparent 1px) 0 0 / 44px 44px,
+        linear-gradient(-60deg, rgba(0, 163, 176, 0.08) 1px, transparent 1px) 0 0 / 44px 44px;
+      mask-image: radial-gradient(circle at 50% 15%, black 34%, transparent 84%);
+      -webkit-mask-image: radial-gradient(circle at 50% 15%, black 34%, transparent 84%);
     }
 
     .wrap {
@@ -52,8 +67,8 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(12px);
-      background: color-mix(in srgb, var(--bg) 78%, transparent);
-      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, white);
+      background: rgba(244, 250, 255, 0.82);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 68%, white);
     }
 
     .topbar {
@@ -65,6 +80,7 @@
     }
 
     .brand {
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
       font-weight: 700;
       letter-spacing: 0.02em;
     }
@@ -98,7 +114,7 @@
     }
 
     .eyebrow {
-      color: var(--accent);
+      color: color-mix(in srgb, var(--accent) 92%, black);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -112,8 +128,9 @@
     }
 
     .hero h1 {
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
       font-size: clamp(2rem, 4.8vw, 3.4rem);
-      max-width: 14ch;
+      max-width: 17ch;
     }
 
     .lead {
@@ -149,7 +166,7 @@
 
     .btn.primary {
       color: #fff;
-      background: linear-gradient(120deg, var(--accent), #0a8787);
+      background: linear-gradient(120deg, var(--accent), #0b7cd5);
       border-color: transparent;
     }
 
@@ -167,6 +184,15 @@
       border: 1px solid var(--line);
       font-size: 0.85rem;
       color: var(--muted);
+      animation: pulse 3.2s ease-in-out infinite;
+    }
+
+    .chip:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .chip:nth-child(3) {
+      animation-delay: 0.6s;
     }
 
     section {
@@ -218,7 +244,7 @@
       font-size: 0.77rem;
       border-radius: 999px;
       background: var(--surface-2);
-      color: #8a3d15;
+      color: #08406f;
       padding: 0.18rem 0.55rem;
     }
 
@@ -290,7 +316,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--accent-2);
+      background: var(--accent-3);
       position: absolute;
       left: -6px;
       top: 0.38rem;
@@ -302,7 +328,7 @@
 
     .cta {
       margin: 2.2rem 0 3rem;
-      background: linear-gradient(115deg, #fef8f2 15%, #edf7f6 85%);
+      background: linear-gradient(115deg, #f5f9ff 15%, #eefbfb 85%);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 1.4rem;
@@ -333,6 +359,16 @@
       }
     }
 
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-2px);
+      }
+    }
+
     @media (max-width: 700px) {
       .hero {
         padding-top: 3.2rem;
@@ -350,6 +386,7 @@
     <div class="wrap topbar">
       <div class="brand">Ondrej Zeleny</div>
       <nav class="nav" aria-label="Sections">
+        <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
         <a href="#contributions">Contributions</a>
@@ -360,125 +397,199 @@
 
   <main class="wrap">
     <section class="hero" id="top">
-      <p class="eyebrow">Build in Public</p>
-      <h1>Work log for products, papers, and open collaboration.</h1>
+      <p class="eyebrow">AI and Neural Networks</p>
+      <h1>Research portfolio for AI systems, wireless intelligence, and applied deep learning.</h1>
       <p class="lead">
-        This template is set up for publishing what you are building, what you have published, and which teams or projects you actively contribute to.
+        PhD candidate at the Department of Radio Electronics, Faculty of Electronics and Communication Technologies, Brno University of Technology.
       </p>
       <div class="actions">
         <a class="btn primary" href="#projects">See Current Work</a>
         <a class="btn" href="#publications">Browse Publications</a>
       </div>
       <div class="stats">
-        <span class="chip">Update this weekly</span>
-        <span class="chip">Tag by domain</span>
-        <span class="chip">Link repos and papers</span>
+        <span class="chip">Deep Learning</span>
+        <span class="chip">Signal Processing</span>
+        <span class="chip">5G and Open RAN</span>
       </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <h2>About</h2>
+        <p>Primary focus and academic profile.</p>
+      </div>
+      <article class="card">
+        <p>
+          I focus on machine learning and neural networks for wireless communications, signal analysis, and practical AI deployment.
+          My recent work includes occupancy detection, multipath component detection in power delay profiles, and predictive maintenance models for 5G and rail systems.
+        </p>
+      </article>
     </section>
 
     <section id="projects">
       <div class="section-head">
-        <h2>Featured Projects</h2>
-        <p>Replace these cards with your active work.</p>
+        <h2>Project Involvement</h2>
+        <p>Populated from CV project records.</p>
       </div>
       <div class="cards">
-        <!-- Duplicate this card for each project -->
         <article class="card">
-          <h3>Project Name</h3>
-          <p>Short project summary. What problem are you solving and what is your specific role?</p>
+          <h3>FW03010366 (2022-2023)</h3>
+          <p>
+            AI for compensation of machining thermal dilatations (TA CR, TREND). Role: data analysis, visualization,
+            and neural network modeling for prediction from machine sensor streams (temperature and rotation data).
+          </p>
           <div class="tags">
-            <span class="tag">Web</span>
-            <span class="tag">Data</span>
-            <span class="tag">Open Source</span>
-          </div>
-          <div class="card-links">
-            <a href="#" aria-label="Project repository">Repo</a>
-            <a href="#" aria-label="Live demo">Demo</a>
+            <span class="tag">Applied AI</span>
+            <span class="tag">Predictive Modeling</span>
+            <span class="tag">Industrial Data</span>
           </div>
         </article>
 
         <article class="card">
-          <h3>Second Project</h3>
-          <p>Another concise summary with measurable progress, e.g. launch date, users, or milestones.</p>
+          <h3>CL02000139 - 5GRailCare (2025-2027)</h3>
+          <p>
+            Innovative remote 5G management of railway fleets with predictive maintenance estimation.
+            Role: data analysis, visualization, and model development for locomotive maintenance prediction using neural networks.
+          </p>
           <div class="tags">
-            <span class="tag">Research</span>
-            <span class="tag">Automation</span>
-          </div>
-          <div class="card-links">
-            <a href="#">Write-up</a>
-            <a href="#">GitHub</a>
+            <span class="tag">5G</span>
+            <span class="tag">Predictive Maintenance</span>
+            <span class="tag">Neural Networks</span>
           </div>
         </article>
 
         <article class="card">
-          <h3>Community Contribution</h3>
-          <p>A project you support with code, documentation, design, or review work.</p>
+          <h3>VK01030166 (2024-2025)</h3>
+          <p>
+            Open RAN cybersecurity project focused on identity theft of base stations and 5G physical layer verification.
+            Role: framework development for optimization and testing of fake base station presence classifiers.
+          </p>
           <div class="tags">
-            <span class="tag">Contribution</span>
-            <span class="tag">Maintainer Work</span>
+            <span class="tag">Open RAN</span>
+            <span class="tag">5G Security</span>
+            <span class="tag">ML Classification</span>
           </div>
-          <div class="card-links">
-            <a href="#">Contribution log</a>
+        </article>
+
+        <article class="card">
+          <h3>GF23-04304L (2023-2025)</h3>
+          <p>
+            Multi-band mmWave propagation prediction for dynamic and static scenarios.
+            Role: design of neural network and machine learning models for multipath component identification in Power Delay Profiles (PDP).
+          </p>
+          <div class="tags">
+            <span class="tag">mmWave</span>
+            <span class="tag">PDP Analysis</span>
+            <span class="tag">Deep Learning</span>
           </div>
         </article>
       </div>
+
+      <!-- Placeholder project card (commented for later use)
+      <article class="card">
+        <h3>Project ID and Date</h3>
+        <p>Summary of goal and your exact role in the project.</p>
+        <div class="tags">
+          <span class="tag">Tag 1</span>
+          <span class="tag">Tag 2</span>
+          <span class="tag">Tag 3</span>
+        </div>
+      </article>
+      -->
     </section>
 
     <section id="publications">
       <div class="section-head">
         <h2>Publications</h2>
-        <p>Use this area for papers, talks, and articles.</p>
+        <p>Main-author publications from your CV and provided papers.</p>
       </div>
       <ul class="pub-list">
-        <!-- Duplicate this list item for each publication -->
         <li class="pub">
           <div class="pub-top">
-            <h3>Publication Title Goes Here</h3>
-            <span class="tag">Journal</span>
+            <h3>A Deep Learning Approach to Multipath Component Detection in Power Delay Profiles</h3>
+            <span class="tag">Conference (IEEE)</span>
           </div>
-          <p class="meta">Co-authors: Name 1, Name 2 - 2026</p>
+          <p class="meta">Zeleny, Zavorka, Prokes, Fryza, Wojtun, Kelner, Ziolkowski, Chandra - RADIOELEKTRONIKA 2025</p>
           <div class="card-links">
-            <a href="#">DOI</a>
-            <a href="#">PDF</a>
-            <a href="#">Slides</a>
+            <a href="https://doi.org/10.1109/RADIOELEKTRONIKA65656.2025.11008404">DOI</a>
+            <a href="my%20papers/A_Deep_Learning_Approach_to_Multipath_Component_Detection_in_Power_Delay_Profiles.pdf">PDF</a>
           </div>
         </li>
 
         <li class="pub">
           <div class="pub-top">
-            <h3>Technical Article or Conference Talk</h3>
-            <span class="tag">Conference</span>
+            <h3>Detection of Room Occupancy in Smart Buildings</h3>
+            <span class="tag">Journal</span>
           </div>
-          <p class="meta">Event Name - 2025</p>
+          <p class="meta">Zeleny, Fryza, Bravenec, Azizi, Nair - Radioengineering, vol. 33, no. 3, 2024</p>
           <div class="card-links">
-            <a href="#">Recording</a>
-            <a href="#">Article</a>
+            <a href="https://doi.org/10.13164/re.2024.0432">DOI</a>
+            <a href="my%20papers/24_03_0432_0441.pdf">PDF</a>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="pub-top">
+            <h3>Multi-Branch Multi Layer Perceptron: A Solution for Precise Regression using Machine Learning</h3>
+            <span class="tag">Conference (IEEE)</span>
+          </div>
+          <p class="meta">Zeleny, Fryza - RADIOELEKTRONIKA 2023</p>
+          <div class="card-links">
+            <a href="CV_Ondrej_Zeleny.docx">Citation Source (CV)</a>
           </div>
         </li>
       </ul>
+
+      <!-- Placeholder publication entry (commented for later use)
+      <li class="pub">
+        <div class="pub-top">
+          <h3>Publication Title</h3>
+          <span class="tag">Journal or Conference</span>
+        </div>
+        <p class="meta">Authors - Venue, Year</p>
+        <div class="card-links">
+          <a href="#">DOI</a>
+          <a href="#">PDF</a>
+        </div>
+      </li>
+      -->
     </section>
 
     <section id="contributions">
       <div class="section-head">
         <h2>Contribution Timeline</h2>
-        <p>Track what you shipped and supported.</p>
+        <p>Key milestones from project involvement and publications.</p>
       </div>
       <ol class="timeline">
-        <li><strong>Mar 2026:</strong> Shipped v2 dashboard architecture and migration docs.</li>
-        <li><strong>Feb 2026:</strong> Co-authored paper draft and submitted camera-ready revisions.</li>
-        <li><strong>Jan 2026:</strong> Reviewed 12 pull requests across partner repositories.</li>
+        <li><strong>2022-2023:</strong> FW03010366 - AI models for thermal dilatation prediction in industrial machinery.</li>
+        <li><strong>2023:</strong> First-author IEEE publication on precise regression with Multi-Branch MLP.</li>
+        <li><strong>2024:</strong> First-author journal publication on occupancy detection using neural networks.</li>
+        <li><strong>2024-2025:</strong> VK01030166 - Open RAN/5G security classifier framework development.</li>
+        <li><strong>2025:</strong> First-author IEEE publication on deep learning for multipath component detection in PDP.</li>
+        <li><strong>2025-2027:</strong> CL02000139 - Predictive maintenance modeling for 5G railway fleet management.</li>
       </ol>
+
+      <!-- Placeholder timeline item (commented for later use)
+      <li><strong>Year:</strong> Contribution summary.</li>
+      -->
     </section>
 
     <section class="cta" id="contact">
-      <h2>Open to collaboration</h2>
-      <p>For project partnerships, speaking, or research collaboration:</p>
-      <p><strong>Email:</strong> your.name@email.com</p>
+      <h2>Contact</h2>
+      <p>For research collaboration, publications, and AI project work:</p>
+      <p><strong>Email:</strong> <a href="mailto:ondrej.zeleny@vut.cz">ondrej.zeleny@vut.cz</a></p>
+      <p><strong>Position:</strong> PhD candidate</p>
+      <p><strong>Affiliation:</strong> Department of Radio Electronics, Faculty of Electronics and Communication Technologies, Brno University of Technology</p>
       <div class="card-links">
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
+        <a href="https://github.com/zeleny-ondrej">GitHub</a>
+        <a href="https://www.linkedin.com/in/ondrej-zeleny-3b65a6215">LinkedIn</a>
+      </div>
+
+      <!-- Placeholder links (commented for later use)
+      <div class="card-links">
         <a href="#">Google Scholar</a>
       </div>
+      -->
     </section>
   </main>
 
